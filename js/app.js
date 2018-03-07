@@ -1,6 +1,12 @@
 let containerFilms = $('#container-films');
 const pelis = "https://swapi.co/api/films/";
 
+$(document).ready(function(){
+   // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+   $('.modal').modal();
+   getData(pelis);
+ });
+
 function getData(url) {
   $.ajax({
       dataType: "json",
@@ -22,10 +28,10 @@ function drawData(data) {
     const resumen = element.opening_crawl;
     const personajes = element.characters;
     personajes.forEach(personaje => {
-      characters += `<p><a href="#">${personaje}</a></p>`
+      characters += `<p><a class="modal-trigger" href="#modal1">${personaje}</a></p>`
     })
     cardMovies += `<div class ="row">
-    <div class="card col s12 m8 l6 ">
+    <div class="card col s12 m8 l4 ">
     <div class="card-image waves-effect waves-block waves-light">
     <img class="activator" src=${poster}>
     </div>
@@ -34,13 +40,10 @@ function drawData(data) {
     <p>${resumen}</p>
     </div>
     <div class="card-reveal">
-    <span class="card-title grey-text text-darken-4">${movie} <span>Characters</span><i class="material-icons right">close</i></span>
+    <span class="card-title grey-text text-darken-4 navbar-fixed nav-wrapper">${movie} <span>Characters</span><i class="material-icons right">close</i></span>
     ${characters}
     </div>
     </div>`;
     containerFilms.html(cardMovies)
   })
 };
-//console.log(cardMovies);
-
-getData(pelis);
