@@ -24,8 +24,32 @@
   <!-- Modal Structure -->
   <div id="modal1" class="modal">
     <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
+      <h4 id="name"></h4>
+      <table class="striped responsive-table">
+        <thead>
+          <tr>
+              <th>Gender</th>
+              <th>Birth</th>
+              <th>Height (cm)</th>
+              <th>Mass (kg)</th>
+              <th>Skin color</th>
+              <th>Eye color</th>
+              <th>Hair</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td id="gender"></td>
+            <td id="birth_year"></td>
+            <td id="height"></td>
+            <td id="mass"></td>
+            <td id="skin_color"></td>
+            <td id="eye_color"></td>
+            <td id="hair_color"></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <div class="modal-footer">
       <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
